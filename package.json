@@ -30,10 +30,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/superclaude-hybrid.git"
+    "url": "https://github.com/therbta/superclaude-hybrid.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/superclaude-hybrid/issues"
+    "url": "https://github.com/therbta/superclaude-hybrid/issues"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/superclaude-hybrid#readme"
+  "homepage": "https://github.com/therbta/superclaude-hybrid#readme"
 }

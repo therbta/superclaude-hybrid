@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 
-Created and maintained by [Barış Taskiran (RBT)](https://github.com/YOUR_USERNAME)
+Created and maintained by [Barış Taskiran (RBT)](https://github.com/therbta)
 
 ---
 
@@ -116,7 +116,7 @@ See the [SuperClaude installation guide](https://github.com/SuperClaude-Org/Supe
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/superclaude-hybrid.git
+git clone https://github.com/therbta/superclaude-hybrid.git
 cd superclaude-hybrid
 ```
 
@@ -473,7 +473,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Credits
 
-**Created and maintained by [Barış Taskiran (RBT)](https://github.com/YOUR_USERNAME)**
+**Created and maintained by [Barış Taskiran (RBT)](https://github.com/therbta)**
 
 ### Acknowledgments
 
