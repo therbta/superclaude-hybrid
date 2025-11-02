@@ -1,0 +1,39 @@
+{
+  "name": "superclaude-hybrid",
+  "version": "1.0.0",
+  "description": "Hybrid configuration utility for using Claude.ai (account) and GLM 4.6 (API key) together with SuperClaude Framework - NOT a replacement for SuperClaude",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js init",
+    "status": "node index.js status",
+    "save-config": "node index.js save-config",
+    "hot-reload": "node index.js hot-reload",
+    "setup": "npm install && node index.js init"
+  },
+  "keywords": [
+    "superclaude",
+    "claude-code",
+    "mcp",
+    "ai-agent",
+    "automation",
+    "cursor",
+    "vscode"
+  ],
+  "author": "Barış Taskiran (RBT)",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/superclaude-hybrid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/superclaude-hybrid/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/superclaude-hybrid#readme"
+}

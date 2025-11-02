@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "name": "SuperClaude Hybrid Configuration",
+  "description": "Comprehensive configuration for SuperClaude framework with PM Agent, Research, and Index plugins",
+  "created_by": "Barış Taskiran (RBT)",
+  
+  "core": {
+    "provider": {
+      "default": "claude",
+      "options": ["claude", "glm"],
+      "claude": {
+        "type": "account",
+        "base_url": "https://api.anthropic.com",
+        "authentication": "account_based"
+      },
+      "glm": {
+        "type": "api",
+        "base_url": "https://api.z.ai/api/anthropic",
+        "api_key_env": "ZAI_API_KEY",
+        "models": {
+          "opus": "glm-4.6",
+          "sonnet": "glm-4.6",
+          "haiku": "glm-4.5-air"
+        }
+      }
+    },
+    "timeout_ms": 300000,
+    "safe_mode": true,
+    "hot_reload": true
+  },
+
+  "plugins": {
+    "pm_agent": {
+      "enabled": true,
+      "path": "~/.claude/plugins/pm-agent",
+      "commands": ["/pm", "/pm:plan", "/pm:execute"],
+      "settings": {
+        "confidence_threshold": 0.9,
+        "parallel_execution": true,
+        "token_budget_management": true,
+        "evidence_based": true
+      },
+      "hooks": {
+        "session_start": true,
+        "auto_activate": true
+      }
+    },
+    "research": {
+      "enabled": true,
+      "path": "~/.claude/plugins/research",
+      "commands": ["/research", "/deep-research"],
+      "settings": {
+        "depth": "standard",
+        "max_hops": 3,
+        "sources_per_query": 10,
+        "quality_threshold": 0.6,
+        "target_quality": 0.8
+      },
+      "strategies": {
+        "planning_only": "direct execution for clear queries",
+        "intent_planning": "clarification for ambiguous requests",
+        "unified": "collaborative plan refinement (default)"
+      }
+    },
+    "index_repo": {
+      "enabled": true,
+      "path": "~/.claude/plugins/index-repo",
+      "commands": ["/index-repo", "/index"],
+      "settings": {
+        "auto_index": true,
+        "token_reduction": true,
+        "entry_points_detection": true,
+        "module_mapping": true
+      }
+    }
+  },
+
+  "mcp_servers": {
+    "sequential_thinking": {
+      "enabled": true,
+      "command": "npx -y @modelcontextprotocol/server-sequential-thinking",
+      "description": "Multi-step problem solving and systematic analysis"
+    },
+    "context7": {
+      "enabled": true,
+      "command": "npx -y @upstash/context7-mcp",
+      "description": "Official library documentation and code examples",
+      "api_key_required": false
+    },
+    "playwright": {
+      "enabled": true,
+      "command": "npx -y @playwright/mcp@latest",
+      "description": "Cross-browser E2E testing and automation"
+    },
+    "chrome_devtools": {
+      "enabled": true,
+      "command": "npx -y chrome-devtools-mcp@latest",
+      "description": "Chrome DevTools debugging and performance analysis"
+    },
+    "tavily": {
+      "enabled": false,
+      "command": "npx -y tavily-mcp@0.1.2",
+      "description": "Web search and real-time information retrieval",
+      "api_key_required": true,
+      "api_key_env": "TAVILY_API_KEY"
+    },
+    "serena": {
+      "enabled": false,
+      "command": "uvx mcp-server-serena",
+      "description": "Semantic code analysis and intelligent editing (2-3x faster)",
+      "api_key_required": false,
+      "requires": ["uv", "uvx"]
+    },
+    "magic": {
+      "enabled": false,
+      "command": "npx -y @21st-dev/magic",
+      "description": "Modern UI component generation and design systems",
+      "api_key_required": true,
+      "api_key_env": "TWENTYFIRST_API_KEY"
+    },
+    "morphllm_fast_apply": {
+      "enabled": false,
+      "command": "npx -y @morph-llm/morph-fast-apply",
+      "description": "Fast Apply capability for context-aware code modifications",
+      "api_key_required": true,
+      "api_key_env": "MORPH_API_KEY"
+    },
+    "airis_mcp_gateway": {
+      "enabled": false,
+      "command": "npx -y airis-mcp-gateway",
+      "description": "Dynamic MCP Gateway for zero-token baseline and on-demand tool loading"
+    }
+  },
+
+  "behavioral_modes": {
+    "brainstorming": {
+      "enabled": true,
+      "description": "Creative idea generation and exploration",
+      "commands": ["/sc:brainstorm", "/brainstorm"]
+    },
+    "orchestration": {
+      "enabled": true,
+      "description": "Multi-agent coordination and workflow management",
+      "commands": ["/sc:orchestrate", "/orchestrate"],
+      "default": true
+    },
+    "introspection": {
+      "enabled": true,
+      "description": "Self-reflection and code quality analysis",
+      "commands": ["/sc:introspect", "/introspect"]
+    },
+    "task_management": {
+      "enabled": true,
+      "description": "Task planning, tracking, and execution",
+      "commands": ["/sc:task", "/task"]
+    },
+    "deep_research": {
+      "enabled": true,
+      "description": "Comprehensive research with multi-hop reasoning",
+      "commands": ["/research", "/deep-research"]
+    },
+    "token_efficiency": {
+      "enabled": true,
+      "description": "Optimize token usage and context management",
+      "commands": ["/sc:optimize", "/optimize"]
+    }
+  },
+
+  "agents": {
+    "pm": {
+      "enabled": true,
+      "description": "Project Manager Agent - orchestration and planning",
+      "trigger": "@agent-pm",
+      "capabilities": ["planning", "execution", "monitoring"]
+    },
+    "architect": {
+      "enabled": true,
+      "description": "Software Architecture Specialist",
+      "trigger": "@agent-architect"
+    },
+    "security": {
+      "enabled": true,
+      "description": "Security Analysis Specialist",
+      "trigger": "@agent-security"
+    },
+    "frontend": {
+      "enabled": true,
+      "description": "Frontend Development Specialist",
+      "trigger": "@agent-frontend"
+    },
+    "backend": {
+      "enabled": true,
+      "description": "Backend Development Specialist",
+      "trigger": "@agent-backend"
+    },
+    "qa": {
+      "enabled": true,
+      "description": "Quality Assurance Specialist",
+      "trigger": "@agent-qa"
+    },
+    "devops": {
+      "enabled": true,
+      "description": "DevOps and Infrastructure Specialist",
+      "trigger": "@agent-devops"
+    },
+    "researcher": {
+      "enabled": true,
+      "description": "Research and Documentation Specialist",
+      "trigger": "@agent-researcher"
+    }
+  },
+
+  "paths": {
+    "claude_dir": "~/.claude",
+    "plugins_dir": "~/.claude/plugins",
+    "backup_dir": "~/.claude/config-backups",
+    "log_dir": "./logs",
+    "config_dir": "./config"
+  },
+
+  "extensibility": {
+    "future_agents": {
+      "codex": {
+        "enabled": false,
+        "description": "Codex Agent (planned)",
+        "api_key_env": "CODEX_API_KEY"
+      },
+      "gemini": {
+        "enabled": false,
+        "description": "Gemini Agent (planned)",
+        "api_key_env": "GEMINI_API_KEY"
+      },
+      "qwen": {
+        "enabled": false,
+        "description": "Qwen Agent (planned)",
+        "api_key_env": "QWEN_API_KEY"
+      }
+    },
+    "custom_plugins": {
+      "enabled": true,
+      "path": "./plugins/custom",
+      "auto_discover": true
+    }
+  }
+}

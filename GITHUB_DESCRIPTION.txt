@@ -1,0 +1,1 @@
+Hybrid configuration utility for using Claude.ai (account) and GLM 4.6 (API key) together with SuperClaude Framework. NOT a replacement - requires SuperClaude Framework installation.
